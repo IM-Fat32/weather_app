@@ -7,15 +7,16 @@ import {
   Route
 } from "react-router-dom";
 
+//import components
+import Navbar from "./Components/Navbar.jsx";
 
 function App() {
-  const [lang, setLang] = useState(true);
-
+  const [lang, setLang] = useState(true); //language state
 
   return (
     <Router>
     <div className="App">
-        {/* Maain menu */}
+        <Navbar/>
         <Switch>
           <Route path="/">
             <p>Hello</p>
