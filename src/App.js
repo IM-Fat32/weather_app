@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 
 //import components
-import Navbar from "./Components/Navbar.jsx";
+import Navbar from "./Components/Navbar/Navbar.jsx";
 
 function App() {
   const [lang, setLang] = useState(true); //language state

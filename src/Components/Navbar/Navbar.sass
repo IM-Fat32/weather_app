@@ -4,25 +4,56 @@ $iconsHeight: 75px
   padding: 0
   margin: 0
   box-sizing: border-box
+  color: black
 
-.navbar
+nav
   width: 250px
   height: 100vh
-
-  background-color: black
+  justify-content: space-between
+  display: flex
+  flex-direction: column
+  background-color: #fff
   position: fixed
   transition: transform .5s
 
-  .activator
-    width: 50px
-    height: 50px
+  ul
+    margin-top: 50%
+    display: flex
+    flex-direction: column
+    background-color: #fff
+
+    li
+      background-color: #fff
+      padding: 10px
+      margin-top: 10px
+      color: black
+      font-size: 34px
+      display: flex
+      span
+        font-size: 24px
+        line-height: 150%
+        margin-left: 10px
+
+  .media
+    position: relative
+    width: 100%
+    height: 100px
     background-color: white
-    position: absolute
+
+  .activator
     top: 0
-    right: 0
+    width: 50px
+    height: 100%
+    background-color: #fff
+    color: white
+    position: absolute
+    right: -50px
+    display: flex
+    align-items: center
+    justify-content: center
 
 @media screen and ( max-width: 800px )
-  .navbar
+  nav
     width: 100%
     height: $iconsHeight
     top: calc(100% - #{$iconsHeight})
@@ -30,3 +61,11 @@ $iconsHeight: 75px
     transition: transform 0s
     .activator
       display: none
+
+    ul
+      flex-direction: row
+      margin: 0
+
+      li
+        span
+          display: none
