@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from "react-router-dom";
 
 import "./Navbar.css"; //import local styles
 
@@ -33,28 +34,34 @@ const Navbar = () => {
         </div>
       </div>
       <ul>
-        <li>
+        <NavLink to="/today" className="list-el">
           <div className="icon"><Icon icon={calendarDay} /></div>
           <span>Today</span>
-        </li>
-        <li>
+        </NavLink>
+        <NavLink to="/week" className="list-el">
           <div className="icon"><Icon icon={calendarWeek} /></div>
           <span>Week</span>
-        </li>
-        <li>
-          <div className="icon"><Icon icon={folderFilled} /></div>
-          <span>API</span>
-        </li>
+        </NavLink>
+        <a href="https://openweathermap.org">
+          <li>
+            <div className="icon"><Icon icon={folderFilled} /></div>
+            <span>API</span>
+          </li>
+        </a>
       </ul>
       <ul>
-        <li>
-          <div className="icon"><Icon icon={githubFilled} /></div>
-          <span>Github</span>
-        </li>
-        <li>
-          <div className="icon"><Icon icon={linkedinFilled} /></div>
-          <span>Linkedin</span>
-        </li>
+        <a href="https://openweathermap.org">
+          <li>
+            <div className="icon"><Icon icon={githubFilled} /></div>
+            <span>Github</span>
+          </li>
+        </a>
+        <a href="https://openweathermap.org">
+          <li>
+            <div className="icon"><Icon icon={linkedinFilled} /></div>
+            <span>Linkedin</span>
+          </li>
+        </a>
       </ul>
     </nav >
   );

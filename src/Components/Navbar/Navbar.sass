@@ -23,8 +23,12 @@ nav
   ul
     list-style: none
     position: relative
-
-    li
+    a
+      text-decoration: none
+      width: 100%
+    li, .list-el
+      text-decoration: none
+      color: black
       display: flex
       justify-content: flex-start
       align-items: center
@@ -68,6 +72,7 @@ nav
     grid-template-columns: 3fr 2fr
     grid-template-rows: none
     top: calc(100% - 75px)
+    transition: none !important
     transform: translate(0) !important
 
     ul
@@ -75,7 +80,9 @@ nav
       justify-content: space-around
       &:nth-of-type(2)
         padding: 0
-      li
+      a
+        height: 100%
+      li, .list-el
         background-color: #fff
         justify-content: center
         height: 100%

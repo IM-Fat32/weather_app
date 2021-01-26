@@ -41,7 +41,14 @@ nav ul {
   position: relative;
 }
 
-nav ul li {
+nav ul a {
+  text-decoration: none;
+  width: 100%;
+}
+
+nav ul li, nav ul .list-el {
+  text-decoration: none;
+  color: black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -57,20 +64,20 @@ nav ul li {
   cursor: pointer;
 }
 
-nav ul li:hover {
+nav ul li:hover, nav ul .list-el:hover {
   background-color: #e4e4e4;
 }
 
-nav ul li:hover span {
+nav ul li:hover span, nav ul .list-el:hover span {
   margin-left: 30px;
 }
 
-nav ul li .icon {
+nav ul li .icon, nav ul .list-el .icon {
   font-size: 150%;
   margin-left: 20px;
 }
 
-nav ul li span {
+nav ul li span, nav ul .list-el span {
   margin-left: 20px;
   -webkit-transition: margin .3s;
   transition: margin .3s;
@@ -112,6 +119,8 @@ nav ul:nth-of-type(2) {
     -ms-grid-rows: none;
         grid-template-rows: none;
     top: calc(100% - 75px);
+    -webkit-transition: none !important;
+    transition: none !important;
     -webkit-transform: translate(0) !important;
             transform: translate(0) !important;
   }
@@ -126,17 +135,20 @@ nav ul:nth-of-type(2) {
   nav ul:nth-of-type(2) {
     padding: 0;
   }
-  nav ul li {
+  nav ul a {
+    height: 100%;
+  }
+  nav ul li, nav ul .list-el {
     background-color: #fff;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
     height: 100%;
   }
-  nav ul li .icon {
+  nav ul li .icon, nav ul .list-el .icon {
     margin: 0;
   }
-  nav ul li span {
+  nav ul li span, nav ul .list-el span {
     display: none;
   }
   nav .activator_wrap {
