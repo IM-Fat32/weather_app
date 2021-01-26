@@ -17,7 +17,6 @@ const Navbar = () => {
   const [isActive, setIsActive] = useState(false);
 
   const handleActiveMenu = () => {
-    console.log(isActive)
     setIsActive((prevState) => !prevState);
 
   }

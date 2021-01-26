@@ -1,8 +1,8 @@
 .locationBar-wrapper {
   position: relative;
   -ms-grid-column: 2;
-  -ms-grid-column-span: 4;
-  grid-column: 2/6;
+  -ms-grid-column-span: 3;
+  grid-column: 2/5;
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   grid-row: 2/3;
@@ -20,9 +20,13 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .locationBar-wrapper .locationBar input {
+  max-width: 700px;
   outline: transparent;
   padding: 0 20px;
   font-size: 16px;
@@ -34,7 +38,7 @@
 .locationBar-wrapper .locationBar button {
   outline: transparent;
   margin-left: 30px;
-  width: 50px;
+  min-width: 50px;
   font-size: 24px;
   display: -webkit-box;
   display: -ms-flexbox;

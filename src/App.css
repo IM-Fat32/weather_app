@@ -4,7 +4,7 @@
   background: linear-gradient(180deg, rgba(0, 15, 95, 1) 0%, rgba(1, 133, 255, 1) 100%);
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 200px 200px 200px 200px 1fr;
+  grid-template-columns: .5fr 1fr 1fr 1fr .5fr;
   grid-template-rows: .3fr .3fr 1.5fr 1fr .3fr;
 }
 

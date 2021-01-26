@@ -19,6 +19,7 @@ nav > * {
 }
 
 nav {
+  z-index: 4;
   top: 0;
   left: 0;
   position: fixed;
@@ -113,12 +114,12 @@ nav ul:nth-of-type(2) {
   nav {
     background-color: transparent;
     width: 100vw;
-    height: 75px;
+    height: 60px;
     -ms-grid-columns: 3fr 2fr;
         grid-template-columns: 3fr 2fr;
     -ms-grid-rows: none;
         grid-template-rows: none;
-    top: calc(100% - 75px);
+    top: calc(100% - 60px);
     -webkit-transition: none !important;
     transition: none !important;
     -webkit-transform: translate(0) !important;

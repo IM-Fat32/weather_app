@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,CAAC;EACX,QAAQ,EAAE,KAAK;EACf,KAAK,EAAE,IAAI;EACX,GAAG,EAAE,IAAI;EACT,OAAO,EAAE,GAAG;CAAG",
+    "sources": [
+        "LangButton.sass"
+    ],
+    "names": [],
+    "file": "LangButton.css"
+}
