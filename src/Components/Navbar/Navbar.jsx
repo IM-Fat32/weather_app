@@ -34,7 +34,7 @@ const Navbar = () => {
         </div>
       </div>
       <ul>
-        <NavLink to="/today" className="list-el">
+        <NavLink to="/" className="list-el">
           <div className="icon"><Icon icon={calendarDay} /></div>
           <span>Today</span>
         </NavLink>
