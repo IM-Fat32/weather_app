@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./LocationBar.css";
 
 import { Icon } from '@iconify/react';
 import bxSearch from '@iconify-icons/bx/bx-search';
 
 const LocationBar = () => {
+  const [inputValue, setInputValue] = useState();
 
+  const handleChangeInput = () => {
+
+  }
+
+  console.log(inputValue);
   return (
     <div className="locationBar-wrapper">
       <div className="locationBar">

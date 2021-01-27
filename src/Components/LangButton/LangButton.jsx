@@ -1,16 +1,18 @@
 import React from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import "./LangButton.css";
+import { changeLang } from "../../actions/langActions.js";
 
-const LangButton = (props) => {
-  const handleClickLangButton = (props) => {
+const LangButton = () => {
+  const currentLang = useSelector(store => store.lang);
+  const dispatch = useDispatch();
 
+  const handleClickLangButton = () => {
+    dispatch(changeLang(currentLang));
   }
-
-  const name = props.name;
-  const setLang = props.fun;
   return (
-    <button className="lang_button" onClick={() => handleClickLangButton(setLang)}>
-      {name}
+    <button className="lang_button" onClick={() => handleClickLangButton()}>
+      {currentLang}
     </button>
   );
 }
