@@ -16,13 +16,12 @@ import LangButton from "./Components/LangButton/LangButton.jsx";
 //
 
 function App() {
-  const City = "London"; //local state handleBarInput
+  const [city, setCity] = useState("London");//local state handleBarInput
   const [dataAPI, setDataAPI] = useState(); //local state fetch data from API
   const currentLang = useSelector(store => store.lang)//global state language
-
   //get data from API
-  const asyncGetData = async (City, currentLang, APIKey, data) => {
-    const API = `http://api.openweathermap.org/data/2.5/weather?q=${City}&appid=${APIKey}&lang=${currentLang}`;
+  const asyncGetData = async (city, currentLang, APIKey) => {
+    const API = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}&lang=${currentLang}`;
     //call API
     fetch(API).then((res) => res.json()).then((res) => {
       setDataAPI(res);
@@ -32,15 +31,18 @@ function App() {
 
   //before loaded page, start calling API
   useEffect (()=>{
-    asyncGetData(City, currentLang, APIKey);
-  },[currentLang]);   //every change global state, re-render + call API
+    asyncGetData(city, currentLang, APIKey);
+  },[city,currentLang]);  //every change global state, re-render + call API
   //
+  
+  console.log(dataAPI)
   return (
       <Router>
-      <div className="App">
+      <div className="App" >
           <Navbar />
           <LangButton />
-          <LocationBar/>
+          {dataAPI ? <h2>{dataAPI.coord.lon}</h2>: <h2>Oczekwianie na dane</h2>}
+          <LocationBar callback={setCity}/>
           <Switch>
             <Route path="/">
             </Route>
