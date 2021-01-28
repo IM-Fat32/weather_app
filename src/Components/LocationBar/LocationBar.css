@@ -1,8 +1,8 @@
 .locationBar-wrapper {
   position: relative;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 3;
-  grid-column: 2/5;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 8;
+  grid-column: 3/11;
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   grid-row: 2/3;
