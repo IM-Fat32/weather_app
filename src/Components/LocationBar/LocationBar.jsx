@@ -5,20 +5,23 @@ import { Icon } from '@iconify/react';
 import bxSearch from '@iconify-icons/bx/bx-search';
 
 const LocationBar = ({ callback }) => {
-  const [inputValue, setInputValue] = useState();
+  const [inputValue, setInputValue] = useState("London");
   const handleChangeInput = () => {
     const inputValue = document.querySelector("[data-input]").value;
     setInputValue(inputValue);
   }
 
   const handleClickSearch = () => {
-    callback(inputValue);
+    if (inputValue !== "")
+      callback(inputValue);
+    else
+      window.alert("Podaj miasto")
   }
 
   return (
     <div className="locationBar-wrapper">
       <div className="locationBar">
-        <input type="text" data-input onChange={handleChangeInput} />
+        <input type="text" data-input onChange={handleChangeInput} value={inputValue} />
         <button onClick={handleClickSearch}><Icon icon={bxSearch} /></button>
       </div>
     </div>

@@ -2,15 +2,13 @@ import React from 'react';
 
 import "./MainPage.css";
 
-const MainPage = ({ data }) => {
+const MainPage = ({ data }) => { //receve data from props app.js
 
   if (!data) {
     return null;
   }
 
   const city = data.city.name;
-
-
 
   data = data.list;
 

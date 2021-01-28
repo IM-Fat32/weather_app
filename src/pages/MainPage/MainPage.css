@@ -59,6 +59,11 @@
   text-transform: capitalize;
 }
 
+.mainElement .display p {
+  font-weight: 300;
+  padding: 10px;
+}
+
 .subElements {
   -ms-flex-item-align: center;
       align-self: center;
@@ -85,5 +90,24 @@
   width: 200px;
   padding: 30px 10px;
   background-color: #2A86F1;
+}
+
+.subElements .display .location {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.subElements .display .temp {
+  font-size: 2.5rem;
+}
+
+.subElements .display .description {
+  font-size: 1.2rem;
+  text-transform: capitalize;
+}
+
+.subElements .display p {
+  font-weight: 300;
+  padding: 10px;
 }
 /*# sourceMappingURL=MainPage.css.map */

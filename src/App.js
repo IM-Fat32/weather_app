@@ -23,12 +23,14 @@ function App() {
   //get data from API
   const asyncGetData = async (city, currentLang, APIKey) => {
     const API = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=4&appid=${APIKey}&lang=${currentLang}`;
-    console.log(API)
     fetch(API).then((res) => res.json()).then((res) => {
-      setDataAPI(res);
-
+      if(res.cod === "200")
+        setDataAPI(res);
+      else
+        setDataAPI(null);
     })
   }
+  console.log(dataAPI)
   //
 
   //before loaded page, start calling API
@@ -44,7 +46,12 @@ function App() {
           <LocationBar callback={setCity}/>
           <Switch>
             <Route path="/">
-              <MainPage data = {dataAPI ? dataAPI : false}/>
+              {
+              dataAPI ? 
+                <MainPage data = {dataAPI}/> 
+                : 
+                <h3 className="error">Niepoprawne miasto</h3>
+              }
             </Route>
           </Switch>
       </div>
