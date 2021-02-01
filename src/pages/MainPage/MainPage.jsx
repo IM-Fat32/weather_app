@@ -78,7 +78,7 @@ const MainPage = ({ data }) => { //receve data from props app.js
           }
           {showElementsArr}
           {numRightElement <= elementsArray.length - 2 ?
-            <button className="slider__button" onClick={handleAddValueNumber}>
+            <button className="slider__button" id="right-slider" onClick={handleAddValueNumber}>
               <Icon icon={outlineNavigateNext} />
             </button>
             :
