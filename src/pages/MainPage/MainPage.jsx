@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import outlineNavigateNext from '@iconify-icons/ic/outline-navigate-next';
-import { Icon, InlineIcon } from '@iconify/react';
+import { Icon } from '@iconify/react';
 
 import "./MainPage.css";
 
 const MainPage = ({ data }) => { //receve data from props app.js
-  const [numRightElement, setNumRightElement] = useState(2);
-
   if (!data) {
     return null;
   }
@@ -36,24 +34,40 @@ const MainPage = ({ data }) => { //receve data from props app.js
 
   elementsArray.shift();
 
-
-  const getThreeElements = (arr) => {
-    const showElementsArr = [];
-    for (let i = numRightElement - 2; i <= numRightElement; i++)
-      showElementsArr.push(arr[i]);
-    return showElementsArr;
-  }
-
-  const showElementsArr = getThreeElements(elementsArray);
-
   const handleMinusValueNumber = () => {
-    setNumRightElement(numRightElement - 1);
-    console.log(numRightElement)
+    const container = document.querySelector(".subElements");
+    let translateXValue = parseInt(window.getComputedStyle(container).getPropertyValue('transform').match(/(-?[0-9.]+)/g)[4]);
+
+    if (translateXValue < 0) {
+      translateXValue += 300;
+      container.style.transform = `translateX(${translateXValue}px)`
+    }
+
   }
 
   const handleAddValueNumber = () => {
-    setNumRightElement(numRightElement + 1);
-    console.log(numRightElement)
+    setTimeout(() => { }, 300);
+    const container = document.querySelector(".subElements");
+    let translateXValue = parseInt(window.getComputedStyle(container).getPropertyValue('transform').match(/(-?[0-9.]+)/g)[4]);
+
+    if (window.innerWidth < 800) {
+      if (translateXValue > -1800) {
+        translateXValue -= 300;
+        container.style.transform = `translateX(${translateXValue}px)`
+      }
+    }
+    else if (window.innerWidth >= 800 && window.innerWidth < 1025) {
+      if (translateXValue > -1500) {
+        translateXValue -= 300;
+        container.style.transform = `translateX(${translateXValue}px)`
+      }
+    }
+    else {
+      if (translateXValue > -1200) {
+        translateXValue -= 300;
+        container.style.transform = `translateX(${translateXValue}px)`
+      }
+    }
   }
 
   return (
@@ -67,24 +81,16 @@ const MainPage = ({ data }) => { //receve data from props app.js
           <h4>Brak danych</h4>
         }
       </div>
-      <div className="subElements">
-        <>
-          {numRightElement >= 3 ?
-            <button className="slider__button" onClick={handleMinusValueNumber}>
-              <Icon icon={outlineNavigateNext} />
-            </button>
-            :
-            null
-          }
-          {showElementsArr}
-          {numRightElement <= elementsArray.length - 2 ?
-            <button className="slider__button" id="right-slider" onClick={handleAddValueNumber}>
-              <Icon icon={outlineNavigateNext} />
-            </button>
-            :
-            null
-          }
-        </>
+      <div className="subElements__wrapper">
+        <div className="subElements">
+          {elementsArray}
+        </div>
+        <button className="slider__button" onClick={handleMinusValueNumber}>
+          <Icon icon={outlineNavigateNext} />
+        </button>
+        <button className="slider__button" onClick={handleAddValueNumber}>
+          <Icon icon={outlineNavigateNext} />
+        </button>
       </div>
     </>
   );
