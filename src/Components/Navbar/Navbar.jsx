@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+
+import { capitaliseFirstLetter } from "../../capitaliseFirstLetter.js";
 
 import "./Navbar.css"; //import local styles
 
@@ -12,17 +15,39 @@ import menuAlt2 from '@iconify-icons/heroicons-solid/menu-alt-2';
 import githubFilled from '@iconify-icons/ant-design/github-filled';
 import linkedinFilled from '@iconify-icons/ant-design/linkedin-filled';
 
+const dictionary = {
+  "pl": {
+    weather: "pogoda",
+    clouds: "zachmurzenie",
+    windSpeed: "prędkość wiatru"
+
+  },
+  "en": {
+    weather: "weather",
+    clouds: "clouds",
+    windSpeed: "wind speed"
+  }
+}
+
 const Navbar = () => {
+  const currentLang = useSelector(store => store.lang) //get global lang varraible
   //active menu
+  let currentDictionary;
+  if (currentLang === "pl") {
+    currentDictionary = dictionary.pl;
+  }
+  else {
+    currentDictionary = dictionary.en;
+  }
+
   const [isActive, setIsActive] = useState(false);
 
   const handleActiveMenu = () => {
     setIsActive((prevState) => !prevState);
-
   }
   return (
     <nav
-      style={isActive ? { transform: `translateX(${0}px)` } : { transform: `translateX(${-200}px)` }}
+      style={isActive ? { transform: `translateX(${0}px)` } : { transform: `translateX(${-300}px)` }}
     >
       <div className="activator_wrap">
         <div className="activator"
@@ -35,11 +60,15 @@ const Navbar = () => {
       <ul>
         <NavLink to="/" className="list-el">
           <div className="icon"><Icon icon={calendarDay} /></div>
-          <span>Today</span>
+          <span>{capitaliseFirstLetter(currentDictionary.weather)}</span>
         </NavLink>
         <NavLink to="/week" className="list-el">
           <div className="icon"><Icon icon={calendarWeek} /></div>
-          <span>Week</span>
+          <span>{capitaliseFirstLetter(currentDictionary.clouds)}</span>
+        </NavLink>
+        <NavLink to="/week" className="list-el">
+          <div className="icon"><Icon icon={calendarWeek} /></div>
+          <span>{capitaliseFirstLetter(currentDictionary.windSpeed)}</span>
         </NavLink>
         <a href="https://openweathermap.org">
           <li>

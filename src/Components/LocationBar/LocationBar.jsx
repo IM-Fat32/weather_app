@@ -18,10 +18,15 @@ const LocationBar = ({ callback }) => {
       window.alert("Podaj miasto")
   }
 
+  const handleKeyPress = (e) => {
+    if (e.keyCode === 13)
+      handleClickSearch();
+  }
+
   return (
     <div className="locationBar-wrapper">
       <div className="locationBar">
-        <input type="text" data-input onChange={handleChangeInput} value={inputValue} />
+        <input type="text" data-input onChange={handleChangeInput} onKeyDown={handleKeyPress} value={inputValue} />
         <button onClick={handleClickSearch}><Icon icon={bxSearch} /></button>
       </div>
     </div>

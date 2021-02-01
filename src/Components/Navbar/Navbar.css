@@ -23,7 +23,7 @@ nav {
   top: 0;
   left: 0;
   position: fixed;
-  width: 200px;
+  width: 300px;
   height: 100vh;
   background-color: #fff;
   color: black;
@@ -60,8 +60,9 @@ nav ul li, nav ul .list-el {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  padding: 10px;
+  padding: 10px 0px;
   font-size: 20px;
+  font-weight: 300;
   cursor: pointer;
 }
 
@@ -79,7 +80,7 @@ nav ul li .icon, nav ul .list-el .icon {
 }
 
 nav ul li span, nav ul .list-el span {
-  margin-left: 20px;
+  margin-left: 16px;
   -webkit-transition: margin .3s;
   transition: margin .3s;
 }
@@ -115,8 +116,8 @@ nav ul:nth-of-type(2) {
     background-color: transparent;
     width: 100vw;
     height: 60px;
-    -ms-grid-columns: 3fr 2fr;
-        grid-template-columns: 3fr 2fr;
+    -ms-grid-columns: 4fr 2fr;
+        grid-template-columns: 4fr 2fr;
     -ms-grid-rows: none;
         grid-template-rows: none;
     top: calc(100% - 60px);

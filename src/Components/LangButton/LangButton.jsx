@@ -12,7 +12,7 @@ const LangButton = () => {
   }
   return (
     <button className="lang_button" onClick={() => handleClickLangButton()}>
-      {currentLang}
+      {currentLang === "pl" ? "en" : "pl"}
     </button>
   );
 }

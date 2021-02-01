@@ -2,6 +2,8 @@ import React from 'react';
 import outlineNavigateNext from '@iconify-icons/ic/outline-navigate-next';
 import { Icon } from '@iconify/react';
 
+import { capitaliseFirstLetter } from "../../capitaliseFirstLetter.js";
+
 import "./MainPage.css";
 
 const MainPage = ({ data }) => { //receve data from props app.js
@@ -26,7 +28,9 @@ const MainPage = ({ data }) => { //receve data from props app.js
         <h3 className="location">{city}</h3>
         <h3 className="temp">{`${temp.toFixed()} °C`}</h3>
         <img src={image.default} alt="Weather icon" />
-        <div className="description">{el.weather[0].description}</div>
+        <div className="description">
+          {capitaliseFirstLetter(el.weather[0].description)}
+        </div>
         <p>{currentDate}</p>
       </div >
     )

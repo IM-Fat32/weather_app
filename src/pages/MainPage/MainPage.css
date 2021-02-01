@@ -44,6 +44,8 @@
           align-items: center;
   padding: 20px;
   max-height: 500px;
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .mainElement .display .location {
@@ -57,7 +59,6 @@
 
 .mainElement .display .description {
   font-size: 2rem;
-  text-transform: capitalize;
 }
 
 .mainElement .display p {
@@ -110,16 +111,15 @@
   font-weight: 300;
 }
 
-.subElements .location .temp {
+.subElements .temp {
   font-size: 2.5rem;
 }
 
-.subElements .location .description {
+.subElements .description {
   font-size: 1.2rem;
-  text-transform: capitalize;
 }
 
-.subElements .location p {
+.subElements p {
   font-weight: 300;
   padding: 10px;
 }

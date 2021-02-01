@@ -20,6 +20,7 @@ function App() {
   const [city, setCity] = useState("London");//local state handleBarInput
   const [dataAPI, setDataAPI] = useState(); //local state fetch data from API
   const currentLang = useSelector(store => store.lang)//global state language
+
   //get data from API
   const asyncGetData = async (city, currentLang, APIKey) => {
     const API = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=8&appid=${APIKey}&lang=${currentLang}`;
@@ -30,7 +31,6 @@ function App() {
         setDataAPI(null);
     })
   }
-  console.log(dataAPI)
   //
 
   //before loaded page, start calling API
