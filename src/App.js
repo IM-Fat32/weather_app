@@ -22,7 +22,7 @@ function App() {
   const currentLang = useSelector(store => store.lang)//global state language
   //get data from API
   const asyncGetData = async (city, currentLang, APIKey) => {
-    const API = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=4&appid=${APIKey}&lang=${currentLang}`;
+    const API = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=8&appid=${APIKey}&lang=${currentLang}`;
     fetch(API).then((res) => res.json()).then((res) => {
       if(res.cod === "200")
         setDataAPI(res);

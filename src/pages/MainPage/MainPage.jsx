@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import outlineNavigateNext from '@iconify-icons/ic/outline-navigate-next';
+import { Icon, InlineIcon } from '@iconify/react';
 
 import "./MainPage.css";
 
 const MainPage = ({ data }) => { //receve data from props app.js
+  const [numRightElement, setNumRightElement] = useState(2);
 
   if (!data) {
     return null;
@@ -29,24 +32,59 @@ const MainPage = ({ data }) => { //receve data from props app.js
       </div >
     )
   });
+  const firstEelement = elementsArray[0];
 
-  const subArray = elementsArray;
-  subArray.shift();
+  elementsArray.shift();
 
+
+  const getThreeElements = (arr) => {
+    const showElementsArr = [];
+    for (let i = numRightElement - 2; i <= numRightElement; i++)
+      showElementsArr.push(arr[i]);
+    return showElementsArr;
+  }
+
+  const showElementsArr = getThreeElements(elementsArray);
+
+  const handleMinusValueNumber = () => {
+    setNumRightElement(numRightElement - 1);
+    console.log(numRightElement)
+  }
+
+  const handleAddValueNumber = () => {
+    setNumRightElement(numRightElement + 1);
+    console.log(numRightElement)
+  }
 
   return (
     <>
       <div className="mainElement">
         {data ?
           <>
-            {elementsArray[0]}
+            {firstEelement}
           </>
           :
           <h4>Brak danych</h4>
         }
       </div>
       <div className="subElements">
-        {subArray}
+        <>
+          {numRightElement >= 3 ?
+            <button className="slider__button" onClick={handleMinusValueNumber}>
+              <Icon icon={outlineNavigateNext} />
+            </button>
+            :
+            null
+          }
+          {showElementsArr}
+          {numRightElement <= elementsArray.length - 2 ?
+            <button className="slider__button" onClick={handleAddValueNumber}>
+              <Icon icon={outlineNavigateNext} />
+            </button>
+            :
+            null
+          }
+        </>
       </div>
     </>
   );
