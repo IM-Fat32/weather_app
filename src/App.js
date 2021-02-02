@@ -9,12 +9,18 @@ import {
 } from "react-router-dom";
 //
 import {APIKey} from "./APIKey.js"; //external file with API key
+
+import dictionary from "./dictionary.js";
+import {capitaliseFirstLetter} from "./capitaliseFirstLetter.js";
+
 //import Components
 import Navbar from "./Components/Navbar/Navbar.jsx";
 import LocationBar from "./Components/LocationBar/LocationBar.jsx";
 import LangButton from "./Components/LangButton/LangButton.jsx";
 import MainPage from './pages/MainPage/MainPage.jsx';
 //
+
+import wrongNameSVG from "./icons/wrongName.svg";
 
 function App() {
   const [city, setCity] = useState("London");//local state handleBarInput
@@ -50,7 +56,16 @@ function App() {
               dataAPI ? 
                 <MainPage data = {dataAPI}/> 
                 : 
-                <h3 className="error">Niepoprawne miasto</h3>
+                <>
+                <img src={wrongNameSVG} alt="wrong-city" className="error" />
+                <h3 className="wrong-text">
+                  {currentLang === "pl" ? 
+                  capitaliseFirstLetter(dictionary.pl.errorCity) 
+                  :
+                  capitaliseFirstLetter(dictionary.en.errorCity) 
+                  }
+                </h3>
+                </>
               }
             </Route>
           </Switch>

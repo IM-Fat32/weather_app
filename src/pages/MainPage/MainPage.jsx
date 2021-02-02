@@ -7,9 +7,6 @@ import { capitaliseFirstLetter } from "../../capitaliseFirstLetter.js";
 import "./MainPage.css";
 
 const MainPage = ({ data }) => { //receve data from props app.js
-  if (!data) { //check if data are null
-    return null;
-  }
 
   const city = data.city.name; // assign city from recevied data to variable
 
@@ -86,13 +83,7 @@ const MainPage = ({ data }) => { //receve data from props app.js
   return (
     <>
       <div className="mainElement">
-        {data ?
-          <>
-            {firstEelement}
-          </>
-          :
-          <h4>Brak danych</h4>
-        }
+        {firstEelement}
       </div>
       <div className="subElements__wrapper">
         <div className="subElements">

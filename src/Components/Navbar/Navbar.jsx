@@ -15,19 +15,7 @@ import menuAlt2 from '@iconify-icons/heroicons-solid/menu-alt-2';
 import githubFilled from '@iconify-icons/ant-design/github-filled';
 import linkedinFilled from '@iconify-icons/ant-design/linkedin-filled';
 
-const dictionary = {
-  "pl": {
-    weather: "pogoda",
-    clouds: "zachmurzenie",
-    windSpeed: "prędkość wiatru"
-
-  },
-  "en": {
-    weather: "weather",
-    clouds: "clouds",
-    windSpeed: "wind speed"
-  }
-}
+import dictionary from "../../dictionary.js"
 
 const Navbar = () => {
   const currentLang = useSelector(store => store.lang) //get global lang varraible
@@ -47,7 +35,7 @@ const Navbar = () => {
   }
   return (
     <nav
-      style={isActive ? { transform: `translateX(${0}px)` } : { transform: `translateX(${-300}px)` }}
+      style={isActive ? { transform: `translateX(${0}px)` } : { transform: `translateX(${-250}px)` }}
     >
       <div className="activator_wrap">
         <div className="activator"

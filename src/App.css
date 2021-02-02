@@ -6,6 +6,7 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 50px 100px auto 50px auto 70px;
+  overflow: hidden;
 }
 
 .error {
@@ -14,9 +15,31 @@
   text-align: center;
   align-self: center;
   justify-self: center;
+}
 
+.wrong-text {
+  grid-row: 4/5;
+  grid-column: 4/10;
+  font-size: 36px;
+  font-weight: 300;
 }
 
 body {
   background-color: #282c34;
+}
+
+@media screen and (max-width: 1200px) {
+  .error {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .error {
+    width: 300px;
+  }
+
+  .wrong-text {
+    font-size: 30px;
+  }
 }

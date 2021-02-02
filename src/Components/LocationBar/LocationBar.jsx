@@ -12,10 +12,10 @@ const LocationBar = ({ callback }) => {
   }
 
   const handleClickSearch = () => {
-    if (inputValue !== "")
+    if (inputValue !== "") {
       callback(inputValue);
-    else
-      window.alert("Podaj miasto")
+      setInputValue("");
+    }
   }
 
   const handleKeyPress = (e) => {
