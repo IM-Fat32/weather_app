@@ -33,11 +33,15 @@
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  border: none;
 }
 
 .locationBar-wrapper .locationBar button {
   outline: transparent;
   margin-left: 30px;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
   min-width: 50px;
   font-size: 24px;
   display: -webkit-box;
@@ -49,5 +53,15 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.locationBar-wrapper .locationBar button * {
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.locationBar-wrapper .locationBar button:hover * {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 /*# sourceMappingURL=LocationBar.css.map */
